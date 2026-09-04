@@ -1,0 +1,21 @@
+{
+  "name": "@agent-utils/core",
+  "version": "0.1.0",
+  "description": "AgentUtils core skill engines",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.45.0",
+    "simple-git": "^3.25.0",
+    "typescript": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+# AgentUtils — Minimal Context-Loader Rule Template
+# Inject into agent system prompt. Keep under 200 tokens.
+
+SHELL_SAFETY:
+  - heredoc_only: true         # Never use inline echo with escaped quotes
+  - noninteractive_flags: true # All CLI tools must include non-interactive flags
+  - timeout_wrap: 120s         # Hard timeout on all shell commands
+
+TOKEN_ECONOMY:
+  - no_meta_commentary: true   # No "Sure! I can help..." preamble or postamble
+  - minimal_diffs: true        # Output targeted patches, not full files
+  - error_precision: true      # On failure: exact snippet + fix, no concept explanation
+
+DESTRUCTIVE_GUARD:
+  - block: [git push --force, rm -rf /, DROP TABLE, DROP DATABASE, kubectl delete namespace]
+
+RABBIT_HOLE:
+  - max_identical_failures: 3
+  - on_trigger: invalidate_strategy_and_halt
+
+MCP_SERVERS:
+  - agent-sys: {port: 3105, transport: stdio, safe_mode: true, timeout: 180}
+  - agent-lang: {port: auto, transport: stdio, autostart: true}

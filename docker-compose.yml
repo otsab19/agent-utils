@@ -1,0 +1,89 @@
+version: "3.9"
+
+# ─── AgentUtils Sandbox Runtime ───────────────────────────────────────────────
+# Launches all MCP servers in isolated containers.
+# Usage: docker compose up -d
+
+x-common: &common
+  restart: unless-stopped
+  networks:
+    - agent-net
+  environment:
+    - LOG_LEVEL=debug
+    - MCP_TRANSPORT=sse
+
+services:
+  agent-mcp-go:
+    <<: *common
+    build:
+      context: ./mcp-servers/go
+      dockerfile: Dockerfile
+    container_name: agent-mcp-go
+    ports:
+      - "3100:3100"
+    environment:
+      - MCP_PORT=3100
+
+  agent-mcp-jvm:
+    <<: *common
+    build:
+      context: ./mcp-servers/jvm
+      dockerfile: Dockerfile
+    container_name: agent-mcp-jvm
+    ports:
+      - "3101:3101"
+    environment:
+      - MCP_PORT=3101
+      - JAVA_OPTS=-Xmx512m
+
+  agent-mcp-dotnet:
+    <<: *common
+    build:
+      context: ./mcp-servers/dotnet
+      dockerfile: Dockerfile
+    container_name: agent-mcp-dotnet
+    ports:
+      - "3102:3102"
+    environment:
+      - MCP_PORT=3102
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  agent-mcp-python:
+    <<: *common
+    build:
+      context: ./mcp-servers/python
+      dockerfile: Dockerfile
+    container_name: agent-mcp-python
+    ports:
+      - "3103:3103"
+    environment:
+      - MCP_PORT=3103
+
+  agent-mcp-node:
+    <<: *common
+    build:
+      context: ./mcp-servers/node
+      dockerfile: Dockerfile
+    container_name: agent-mcp-node
+    ports:
+      - "3104:3104"
+    environment:
+      - MCP_PORT=3104
+
+  agent-mcp-sys:
+    <<: *common
+    build:
+      context: ./mcp-servers/sys
+      dockerfile: Dockerfile
+    container_name: agent-mcp-sys
+    ports:
+      - "3105:3105"
+    environment:
+      - MCP_PORT=3105
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+networks:
+  agent-net:
+    driver: bridge
+    name: agent-utils-network

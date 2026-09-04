@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-utils-mcp"
+version = "0.1.0"
+description = "AgentUtils Python MCP Server — py_ast_tracer, py_env_probe, py_mem_profile"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "fastmcp>=0.4.0",
+    "uvicorn[standard]>=0.30.0",
+    "ruff>=0.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+agent-mcp-python = "agent_mcp_python.server:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

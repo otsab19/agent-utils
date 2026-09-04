@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>AgentUtils.MCP</AssemblyName>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Version>0.1.0</Version>
+    <PackageId>AgentUtils.MCP</PackageId>
+    <Description>AgentUtils .NET/C# MCP Server — dotnet_roslyn_analyze, dotnet_test_runner, dotnet_nuget_audit</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.9.2" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    <PackageReference Include="NuGet.Protocol" Version="6.11.0" />
+  </ItemGroup>
+</Project>

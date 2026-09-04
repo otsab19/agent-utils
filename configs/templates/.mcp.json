@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "agent-sys": {
+      "command": "agent-utils-sys",
+      "args": ["--safe-mode", "--timeout=180"],
+      "description": "Bash & OS sandbox — sys_safe_exec, sys_port_inspect, sys_path_verify"
+    },
+    "agent-language": {
+      "command": "agent-utils-lang-detect",
+      "args": ["--autostart"],
+      "description": "Auto-detects project language and starts the appropriate MCP server"
+    },
+    "agent-go": {
+      "command": "agent-mcp-go",
+      "args": ["--port=3100", "--transport=stdio"],
+      "description": "Go MCP — go_ast_inspect, go_test_isolate, go_mod_graph"
+    },
+    "agent-node": {
+      "command": "agent-mcp-node",
+      "args": ["--port=3104", "--transport=stdio"],
+      "description": "Node/TS MCP — ts_typecheck_stream, js_bundle_inspect, node_runtime_eval"
+    },
+    "agent-python": {
+      "command": "agent-mcp-python",
+      "args": ["--port=3103", "--transport=stdio"],
+      "description": "Python MCP — py_ast_tracer, py_env_probe, py_mem_profile"
+    }
+  }
+}

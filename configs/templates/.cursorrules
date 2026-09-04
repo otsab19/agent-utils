@@ -1,0 +1,28 @@
+# Cursor IDE — AgentUtils Instruction Adapter
+# Place in target repository root as .cursorrules
+
+## Behavioral Rules
+
+### Shell Safety
+- Use heredoc syntax for all file writes
+- Never use inline echo with escaped quotes
+- Prefix all apt/npm/git commands with non-interactive flags
+
+### Diffs
+- Output line-level patches, not complete files
+- Use unified diff format when modifying existing code
+
+### Error Handling
+- On test failure: show exact error + fix
+- After 3 identical failures: stop and propose alternate design
+
+### Cursor-Specific
+- Use @codebase context for cross-file references
+- Prefer @terminal for command execution rather than suggesting manual steps
+- Chain tool calls: read file → edit → verify in a single response
+
+## MCP Tools Available
+- `sys_safe_exec` — safe shell command execution
+- `sys_port_inspect` — detect hung dev ports
+- `ts_typecheck_stream` — TypeScript diagnostics
+- `js_bundle_inspect` — bundle weight analysis
