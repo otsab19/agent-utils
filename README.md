@@ -58,7 +58,7 @@ Skills become `/tracer-bullet`, `/tdd-loop`, `/scope-guard` etc. in any project.
 
 ## Agent Skills
 
-Skills are different from Pocock's approach: **every skill integrates with live MCP tools** — they don't just give instructions, they execute type-checkers, AST analyzers, and registry clients during the workflow.
+Unlike static markdown prompts, **every skill integrates with live MCP tools** — they don't just give instructions, they execute type-checkers, AST analyzers, and registry clients during the workflow.
 
 ### Engineering Skills
 
