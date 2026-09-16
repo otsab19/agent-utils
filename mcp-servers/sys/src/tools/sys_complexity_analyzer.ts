@@ -8,8 +8,8 @@ export const sysComplexityAnalyzer = {
     },
     required: ['code']
   },
-  async handler(params: { code: string }) {
-    if (!params.code) {
+  async handler(params: Record<string, unknown>) {
+    if (!params.code || typeof params.code !== 'string') {
       return { error: 'Code snippet is required', isError: true };
     }
 

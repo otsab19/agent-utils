@@ -22,7 +22,7 @@ static class ProcessHelper
         var stdoutTask = proc.StandardOutput.ReadToEndAsync();
         var stderrTask = proc.StandardError.ReadToEndAsync();
 
-        var completed = await Task.WhenAll(
+        await Task.WhenAll(
             proc.WaitForExitAsync(CancellationToken.None),
             stdoutTask,
             stderrTask
