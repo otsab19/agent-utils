@@ -1,0 +1,15 @@
+{
+  "name": "agent-utils",
+  "owner": {
+    "name": "AgentUtils",
+    "url": "https://github.com/your-org/agent-utils"
+  },
+  "description": "Runtime-powered agent skills for polyglot engineering teams. Integrates with live MCP tools (type-checkers, AST analyzers, registry clients) to make every skill executable, not just advisory.",
+  "plugins": [
+    {
+      "name": "agent-utils",
+      "source": "./",
+      "description": "Full AgentUtils skill suite — tracer-bullet, tdd-loop, scope-guard, bug-isolator, rabbit-hole-reverser, dependency-sleuth, legacy-cartographer, cost-profiler, visual-qa"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@agent-utils/mcp-infra",
+  "version": "0.1.0",
+  "description": "AgentUtils MCP Server for Infrastructure CLI wrappers (AWS, Azure, K8s, DBs, MQ)",
+  "type": "module",
+  "bin": {
+    "agent-mcp-infra": "dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/server.ts",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.5.0",
+    "jest": "^29.7.0"
+  }
+}

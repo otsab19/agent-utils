@@ -1,0 +1,34 @@
+{
+  "name": "@agent-utils/cli",
+  "version": "0.1.0",
+  "description": "AgentUtils CLI — Initialize agent skills and MCP config in any project",
+  "type": "module",
+  "bin": {
+    "agent-utils": "dist/index.js",
+    "au": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

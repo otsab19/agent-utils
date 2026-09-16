@@ -1,0 +1,25 @@
+{
+  "name": "agent-utils",
+  "version": "0.1.0",
+  "description": "AgentUtils — Runtime-powered agent skills for polyglot engineering. MCP-integrated workflows for tracer bullets, TDD, bug isolation, dependency resolution, N+1 detection, visual QA, and more.",
+  "author": {
+    "name": "AgentUtils",
+    "url": "https://github.com/your-org/agent-utils"
+  },
+  "homepage": "https://github.com/your-org/agent-utils",
+  "repository": "https://github.com/your-org/agent-utils",
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "skills",
+    "tdd",
+    "mcp",
+    "typescript",
+    "go",
+    "python",
+    "polyglot",
+    "agent",
+    "tracer-bullet",
+    "bug-isolation"
+  ]
+}

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # AgentUtils — Unified Global Installation Script
 # Detects OS, installs all MCP server binaries to ~/.agent-utils/bin
+# and links the skills library to ~/.agent-utils/skills
 
 set -euo pipefail
 
 INSTALL_DIR="${HOME}/.agent-utils/bin"
+SKILLS_DIR="${HOME}/.agent-utils/skills"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 log() { echo "[install.sh] $*"; }
@@ -15,6 +17,7 @@ log "Repo root: ${REPO_ROOT}"
 log "Install dir: ${INSTALL_DIR}"
 
 mkdir -p "${INSTALL_DIR}"
+mkdir -p "${SKILLS_DIR}"
 
 # ── Node / Sys MCP servers ─────────────────────────────────────────────────
 install_node_servers() {
@@ -32,6 +35,10 @@ install_node_servers() {
   npm install --no-audit --no-fund --silent
   npm run build
 
+  cd "${REPO_ROOT}/mcp-servers/infra"
+  npm install --no-audit --no-fund --silent
+  npm run build
+
   # Create wrapper scripts
   cat > "${INSTALL_DIR}/agent-mcp-node" << 'WRAPPER'
 #!/usr/bin/env bash
@@ -45,6 +52,12 @@ node "$(dirname "$0")/../../mcp-servers/sys/dist/server.js" "$@"
 WRAPPER
   chmod +x "${INSTALL_DIR}/agent-mcp-sys"
   ln -sf "${INSTALL_DIR}/agent-mcp-sys" "${INSTALL_DIR}/agent-utils-sys"
+
+  cat > "${INSTALL_DIR}/agent-mcp-infra" << 'WRAPPER'
+#!/usr/bin/env bash
+node "$(dirname "$0")/../../mcp-servers/infra/dist/server.js" "$@"
+WRAPPER
+  chmod +x "${INSTALL_DIR}/agent-mcp-infra"
 
   log "✅ Node MCP servers installed"
 }
@@ -94,10 +107,30 @@ install_dotnet_server() {
   log "✅ .NET MCP server installed"
 }
 
+# ── Skills library ───────────────────────────────────────────────────────
+install_skills() {
+  log "Installing AgentUtils skills library..."
+  local src="${REPO_ROOT}/.agents"
+
+  if [ ! -d "${src}" ]; then
+    warn ".agents/ directory not found — skipping skills install"
+    return
+  fi
+
+  # Symlink the entire .agents dir for live updates
+  ln -sfn "${src}/skills" "${SKILLS_DIR}/skills"
+  ln -sfn "${src}/rules"  "${SKILLS_DIR}/rules"
+
+  log "✅ Skills linked: ${SKILLS_DIR}"
+  log "   Skills: ${src}/skills"
+  log "   Rules:  ${src}/rules"
+}
+
 install_node_servers
 install_go_server
 install_python_server
 install_dotnet_server
+install_skills
 
 # ── PATH hint ─────────────────────────────────────────────────────────────
 echo ""
@@ -106,4 +139,7 @@ echo "✅ AgentUtils installation complete!"
 echo ""
 echo "Add to your shell profile:"
 echo '  export PATH="$HOME/.agent-utils/bin:$PATH"'
+echo ""
+echo "Initialize a project with:"
+echo '  npx @agent-utils/cli init'
 echo "────────────────────────────────────────────────────"
