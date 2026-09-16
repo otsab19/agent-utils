@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/server.ts",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules\" jest --passWithNoTests",
     "start": "node dist/server.js"
   },
   "dependencies": {

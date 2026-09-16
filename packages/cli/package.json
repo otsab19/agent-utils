@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/index.ts",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --passWithNoTests"
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules\" jest --passWithNoTests"
   },
   "dependencies": {
     "commander": "^12.0.0",
