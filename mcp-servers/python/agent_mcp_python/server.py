@@ -8,7 +8,6 @@ Tools: py_ast_tracer, py_env_probe, py_mem_profile
 from __future__ import annotations
 
 import ast
-import dis
 import importlib.util
 import json
 import logging
@@ -108,6 +107,7 @@ def py_env_probe(params: dict[str, Any]) -> dict[str, Any]:
                 capture_output=True,
                 text=True,
                 timeout=15,
+                check=False,
             )
             probe["pipShowOutput"] = result.stdout.strip()
         except subprocess.TimeoutExpired:
@@ -131,7 +131,7 @@ def py_mem_profile(params: dict[str, Any]) -> dict[str, Any]:
     tracemalloc.start()
     try:
         exec(compile(code, "<agent-profiler>", "exec"), {})  # noqa: S102
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         tracemalloc.stop()
         return {"error": f"Execution error: {exc}", "traceback": tracemalloc.get_traceback_limit()}
 
@@ -178,7 +178,7 @@ def dispatch(request: dict[str, Any]) -> dict[str, Any]:
     try:
         result = handler(params)
         return {"jsonrpc": "2.0", "id": req_id, "result": result}
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         return {
             "jsonrpc": "2.0",
             "id": req_id,
