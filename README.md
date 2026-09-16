@@ -87,13 +87,13 @@ Skills are different from Pocock's approach: **every skill integrates with live 
 
 | Server | Package | Tools |
 |---|---|---|
-| Node/TS | `@agent-utils/mcp-node` | `ts_typecheck_stream`, `js_bundle_inspect`, `node_runtime_eval` |
-| Go | `github.com/your-org/agent-utils/mcp-servers/go` | `go_ast_inspect`, `go_test_isolate`, `go_mod_graph` |
-| Python | `agent-utils-mcp` (PyPI) | `py_ast_tracer`, `py_env_probe`, `py_mem_profile` |
-| .NET | `AgentUtils.MCP` (NuGet) | `dotnet_roslyn_analyze`, `dotnet_test_runner`, `dotnet_nuget_audit` |
-| JVM | `io.agentutils:mcp-java` (Maven) | `jvm_gradle_diagnose`, `jvm_stacktrace_unpack`, `jvm_bytecode_signature` |
-| System | `@agent-utils/mcp-sys` | `sys_safe_exec`, `sys_port_inspect`, `sys_path_verify` |
-| Infra | `@agent-utils/mcp-infra` | `infra_db_query`, `infra_aws_cli`, `infra_azure_cli`, `infra_k8s_exec`, `infra_mq_inspect` |
+| Node/TS | [`@agent-utils/mcp-node`](docs/tools/node.md) | `ts_typecheck_stream`, `js_bundle_inspect`, `node_runtime_eval` |
+| Go | [`github.com/your-org/agent-utils/mcp-servers/go`](docs/tools/go.md) | `go_ast_inspect`, `go_test_isolate`, `go_mod_graph` |
+| Python | [`agent-utils-mcp` (PyPI)](docs/tools/python.md) | `py_ast_tracer`, `py_env_probe`, `py_mem_profile` |
+| .NET | [`AgentUtils.MCP` (NuGet)](docs/tools/dotnet.md) | `dotnet_roslyn_analyze`, `dotnet_test_runner`, `dotnet_nuget_audit` |
+| JVM | [`io.agentutils:mcp-java` (Maven)](docs/tools/jvm.md) | `jvm_gradle_diagnose`, `jvm_stacktrace_unpack`, `jvm_bytecode_signature` |
+| System | [`@agent-utils/mcp-sys`](docs/tools/sys.md) | `sys_safe_exec`, `sys_port_inspect`, `sys_path_verify` |
+| Infra | [`@agent-utils/mcp-infra`](docs/tools/infra.md) | `infra_db_query`, `infra_aws_cli`, `infra_azure_cli`, `infra_k8s_exec`, `infra_mq_inspect` |
 
 ---
 
