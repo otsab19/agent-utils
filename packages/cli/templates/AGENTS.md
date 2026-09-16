@@ -86,10 +86,11 @@ definitions. All tools communicate via JSON-RPC 2.0 over stdio.
 | `go_ast_inspect` | mcp-go | Go AST analysis and export surface |
 | `go_test_isolate` | mcp-go | Run a specific Go test in isolation |
 | `go_mod_graph` | mcp-go | Go module dependency graph |
-| `py_ast_tracer` | mcp-python | Python AST and call graph analysis |
+| `py_ast_tracer` | mcp-python | AST-based call graph tracing |
 | `py_env_probe` | mcp-python | Python environment inspection |
 | `sys_safe_exec` | mcp-sys | Safe shell execution with timeout |
 | `sys_port_inspect` | mcp-sys | Port/process inspection |
+| `sys_complexity_analyzer` | mcp-sys | Cyclomatic complexity scoring |
 | `infra_db_query` | mcp-infra | Safe SQL querying (read-only by default) |
 | `infra_k8s_exec` | mcp-infra | Safe kubectl wrapper (read-only) |
 | `infra_aws_cli` | mcp-infra | Safe AWS CLI wrapper (read-only) |

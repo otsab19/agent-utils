@@ -70,7 +70,8 @@ Unlike static markdown prompts, **every skill integrates with live MCP tools** â
 | **dependency-sleuth** | User | `node_runtime_eval` | Resolve dependency conflicts via live registry queries |
 | **legacy-cartographer** | User | `go_ast_inspect`, `py_ast_tracer` | Characterization tests before refactoring untested code |
 | **cost-profiler** | Auto (DB/API/loops) | `js_bundle_inspect`, `go_ast_inspect`, `py_ast_tracer` | Detect N+1, billing risk, bundle regressions |
-| **visual-qa** | Auto (frontend files) | `sys_safe_exec` (Playwright) | Screenshots + DOM overlap detection at 3 viewports |
+| **visual-qa** | Next.js/React layout or styling changes | `sys_safe_exec` (Playwright) | Spins up `playwright` or `puppeteer` to snapshot a visual diff, ensuring CSS changes don't break the layout. |
+| **test-strategist** | Request to write tests | - | Analyzes code complexity to generate an edge-case-debated unit test plan, enforcing BDD naming conventions. |
 | **tdd-loop** | User | `ts_typecheck_stream` | Seam-first red-green-refactor with type gate |
 | **bug-isolator** | User | `go_ast_inspect`, `py_ast_tracer` | Minimal reproduction before any fix is written |
 
@@ -92,7 +93,7 @@ Unlike static markdown prompts, **every skill integrates with live MCP tools** â
 | Python | [`agent-utils-mcp` (PyPI)](docs/tools/python.md) | `py_ast_tracer`, `py_env_probe`, `py_mem_profile` |
 | .NET | [`AgentUtils.MCP` (NuGet)](docs/tools/dotnet.md) | `dotnet_roslyn_analyze`, `dotnet_test_runner`, `dotnet_nuget_audit` |
 | JVM | [`io.agentutils:mcp-java` (Maven)](docs/tools/jvm.md) | `jvm_gradle_diagnose`, `jvm_stacktrace_unpack`, `jvm_bytecode_signature` |
-| System | [`@agent-utils/mcp-sys`](docs/tools/sys.md) | `sys_safe_exec`, `sys_port_inspect`, `sys_path_verify` |
+| System | [`@agent-utils/mcp-sys`](docs/tools/sys.md) | `sys_safe_exec`, `sys_port_inspect`, `sys_path_verify`, `sys_complexity_analyzer` |
 | Infra | [`@agent-utils/mcp-infra`](docs/tools/infra.md) | `infra_db_query`, `infra_aws_cli`, `infra_azure_cli`, `infra_k8s_exec`, `infra_mq_inspect` |
 
 ---

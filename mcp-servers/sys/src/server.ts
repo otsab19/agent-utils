@@ -10,6 +10,7 @@ import { createInterface } from 'node:readline';
 import { sysSafeExec } from './tools/sys_safe_exec.js';
 import { sysPortInspect } from './tools/sys_port_inspect.js';
 import { sysPathVerify } from './tools/sys_path_verify.js';
+import { sysComplexityAnalyzer } from './tools/sys_complexity_analyzer.js';
 
 interface McpTool {
   handler: (params: Record<string, unknown>) => Promise<unknown>;
@@ -19,6 +20,7 @@ const toolRegistry = new Map<string, McpTool>([
   ['sys_safe_exec', sysSafeExec],
   ['sys_port_inspect', sysPortInspect],
   ['sys_path_verify', sysPathVerify],
+  ['sys_complexity_analyzer', sysComplexityAnalyzer],
 ]);
 
 function respond(id: unknown, result?: unknown, error?: { code: number; message: string }): void {
