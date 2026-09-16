@@ -1,4 +1,4 @@
-# System MCP Server (`@otsab190/mcp-sys`)
+# System MCP Server (`@age-ents/mcp-sys`)
 
 This server provides safe OS-level primitives like command execution and port inspection. It enforces safety timeouts and blocks destructive shell commands.
 

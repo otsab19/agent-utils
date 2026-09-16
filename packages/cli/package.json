@@ -1,5 +1,5 @@
 {
-  "name": "@otsab190/cli",
+  "name": "@age-ents/cli",
   "version": "0.1.0",
   "description": "AgentUtils CLI — Initialize agent skills and MCP config in any project",
   "type": "module",

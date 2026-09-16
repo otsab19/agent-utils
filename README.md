@@ -5,7 +5,7 @@
 [![CI](https://github.com/your-org/agent-utils/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/agent-utils/actions/workflows/ci.yml)
 [![Release](https://github.com/your-org/agent-utils/actions/workflows/release.yml/badge.svg)](https://github.com/your-org/agent-utils/actions/workflows/release.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![npm](https://img.shields.io/npm/v/@otsab190/cli)](https://www.npmjs.com/package/@otsab190/cli)
+[![npm](https://img.shields.io/npm/v/@age-ents/cli)](https://www.npmjs.com/package/@age-ents/cli)
 
 A distributable toolkit for AI coding agents. Install once, use in every project.
 
@@ -24,7 +24,7 @@ Three ways, depending on your agent:
 Works with **every agent**: AGY, Claude Code, Cursor, Copilot, Windsurf. Files are version-controlled with your project.
 
 ```bash
-npx @otsab190/cli init
+npx @age-ents/cli init
 ```
 
 Creates `.agents/skills/`, `.agents/rules/`, `AGENTS.md`, `CONTEXT.md`, `.mcp.json` in the current directory. Commit them. Done.
@@ -88,13 +88,13 @@ Unlike static markdown prompts, **every skill integrates with live MCP tools** �
 
 | Server | Package | Tools |
 |---|---|---|
-| Node/TS | [`@otsab190/mcp-node`](docs/tools/node.md) | `ts_typecheck_stream`, `js_bundle_inspect`, `node_runtime_eval` |
+| Node/TS | [`@age-ents/mcp-node`](docs/tools/node.md) | `ts_typecheck_stream`, `js_bundle_inspect`, `node_runtime_eval` |
 | Go | [`github.com/your-org/agent-utils/mcp-servers/go`](docs/tools/go.md) | `go_ast_inspect`, `go_test_isolate`, `go_mod_graph` |
 | Python | [`agent-utils-mcp` (PyPI)](docs/tools/python.md) | `py_ast_tracer`, `py_env_probe`, `py_mem_profile` |
 | .NET | [`AgentUtils.MCP` (NuGet)](docs/tools/dotnet.md) | `dotnet_roslyn_analyze`, `dotnet_test_runner`, `dotnet_nuget_audit` |
 | JVM | [`io.agentutils:mcp-java` (Maven)](docs/tools/jvm.md) | `jvm_gradle_diagnose`, `jvm_stacktrace_unpack`, `jvm_bytecode_signature` |
-| System | [`@otsab190/mcp-sys`](docs/tools/sys.md) | `sys_safe_exec`, `sys_port_inspect`, `sys_path_verify`, `sys_complexity_analyzer` |
-| Infra | [`@otsab190/mcp-infra`](docs/tools/infra.md) | `infra_db_query`, `infra_aws_cli`, `infra_azure_cli`, `infra_k8s_exec`, `infra_mq_inspect` |
+| System | [`@age-ents/mcp-sys`](docs/tools/sys.md) | `sys_safe_exec`, `sys_port_inspect`, `sys_path_verify`, `sys_complexity_analyzer` |
+| Infra | [`@age-ents/mcp-infra`](docs/tools/infra.md) | `infra_db_query`, `infra_aws_cli`, `infra_azure_cli`, `infra_k8s_exec`, `infra_mq_inspect` |
 
 ---
 
@@ -107,7 +107,7 @@ agent-utils/
 │   └── rules/                  # 2 always-on guardrail rules
 │
 ├── packages/
-│   └── cli/                    # @otsab190/cli — npx init command
+│   └── cli/                    # @age-ents/cli — npx init command
 │       ├── src/
 │       │   ├── index.ts        # Commander CLI
 │       │   ├── detect-stack.ts # Language detection
@@ -115,12 +115,12 @@ agent-utils/
 │       └── templates/          # Skill/config templates copied into projects
 │
 ├── mcp-servers/
-│   ├── node/                   # @otsab190/mcp-node
+│   ├── node/                   # @age-ents/mcp-node
 │   ├── go/                     # Go module MCP server
 │   ├── python/                 # PyPI package
 │   ├── dotnet/                 # NuGet package
 │   ├── jvm/                    # Maven/Gradle package
-│   └── sys/                    # @otsab190/mcp-sys
+│   └── sys/                    # @age-ents/mcp-sys
 │
 ├── core/                       # Shared TypeScript logic
 ├── configs/templates/          # Raw config file templates
@@ -166,16 +166,16 @@ export PATH="$HOME/.agent-utils/bin:$PATH"
 
 ```bash
 # Initialize with all skills and auto-detected MCP servers
-npx @otsab190/cli init
+npx @age-ents/cli init
 
 # Engineering skills only, Node+Sys MCP
-npx @otsab190/cli init --skills=engineering --mcp=node,sys
+npx @age-ents/cli init --skills=engineering --mcp=node,sys
 
 # Preview without writing
-npx @otsab190/cli init --dry-run
+npx @age-ents/cli init --dry-run
 
 # List all available skills
-npx @otsab190/cli list-skills
+npx @age-ents/cli list-skills
 ```
 
 ---
@@ -184,9 +184,9 @@ npx @otsab190/cli list-skills
 
 | Component | Registry | Package |
 |---|---|---|
-| CLI + skill templates | npm | `@otsab190/cli` |
-| Node/TS MCP server | npm | `@otsab190/mcp-node` |
-| System MCP server | npm | `@otsab190/mcp-sys` |
+| CLI + skill templates | npm | `@age-ents/cli` |
+| Node/TS MCP server | npm | `@age-ents/mcp-node` |
+| System MCP server | npm | `@age-ents/mcp-sys` |
 | Python MCP server | PyPI | `agent-utils-mcp` |
 | Go MCP server | Go Modules | `github.com/your-org/agent-utils/mcp-servers/go` |
 | .NET MCP server | NuGet | `AgentUtils.MCP` |

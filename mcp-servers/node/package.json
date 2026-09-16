@@ -1,5 +1,5 @@
 {
-  "name": "@otsab190/mcp-node",
+  "name": "@age-ents/mcp-node",
   "version": "0.1.0",
   "description": "AgentUtils Node.js/TypeScript MCP Server",
   "type": "module",
