@@ -1,7 +1,17 @@
 {
-  "dependencies": {
+  "workspaces": [
+    "packages/*",
+    "mcp-servers/node",
+    "mcp-servers/sys",
+    "mcp-servers/infra"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "^3.0.3",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "semantic-release": "^24.2.9"
+  },
+  "scripts": {
+    "publish-packages": "changeset publish"
   }
 }

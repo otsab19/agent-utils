@@ -23,12 +23,20 @@ jobs:
           cache-dependency-path: |
             mcp-servers/node/package-lock.json
             mcp-servers/sys/package-lock.json
+            mcp-servers/infra/package-lock.json
+            packages/cli/package-lock.json
       - run: cd mcp-servers/node && npm ci --no-audit --no-fund
       - run: cd mcp-servers/sys  && npm ci --no-audit --no-fund
+      - run: cd mcp-servers/infra && npm ci --no-audit --no-fund
+      - run: cd packages/cli && npm ci --no-audit --no-fund
       - run: cd mcp-servers/node && npx tsc --noEmit
       - run: cd mcp-servers/sys  && npx tsc --noEmit
+      - run: cd mcp-servers/infra && npx tsc --noEmit
+      - run: cd packages/cli && npx tsc --noEmit
       - run: cd mcp-servers/node && npm test
       - run: cd mcp-servers/sys  && npm test
+      - run: cd mcp-servers/infra && npm test
+      - run: cd packages/cli && npm test
 
   # ── Go MCP Server ─────────────────────────────────────────────────────────
   go:
