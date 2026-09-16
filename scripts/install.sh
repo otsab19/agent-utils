@@ -141,5 +141,5 @@ echo "Add to your shell profile:"
 echo '  export PATH="$HOME/.agent-utils/bin:$PATH"'
 echo ""
 echo "Initialize a project with:"
-echo '  npx @agent-utils/cli init'
+echo '  npx @otsab190/cli init'
 echo "────────────────────────────────────────────────────"

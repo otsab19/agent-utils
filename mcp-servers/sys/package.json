@@ -1,5 +1,5 @@
 {
-  "name": "@agent-utils/mcp-sys",
+  "name": "@otsab190/mcp-sys",
   "version": "0.1.0",
   "description": "AgentUtils System/Bash MCP Server — sys_safe_exec, sys_port_inspect, sys_path_verify",
   "type": "module",

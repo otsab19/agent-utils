@@ -1,4 +1,4 @@
-# Node.js MCP Server (`@agent-utils/mcp-node`)
+# Node.js MCP Server (`@otsab190/mcp-node`)
 
 This server provides tools for analyzing Node.js and TypeScript projects.
 

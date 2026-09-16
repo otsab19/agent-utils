@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * @agent-utils/cli — init command
+ * @otsab190/cli — init command
  *
  * Usage:
- *   npx @agent-utils/cli init
- *   npx @agent-utils/cli init --skills=engineering --mcp=node,go
+ *   npx @otsab190/cli init
+ *   npx @otsab190/cli init --skills=engineering --mcp=node,go
  */
 
 import { program } from 'commander';

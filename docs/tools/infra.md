@@ -1,4 +1,4 @@
-# Infrastructure MCP Server (`@agent-utils/mcp-infra`)
+# Infrastructure MCP Server (`@otsab190/mcp-infra`)
 
 This server provides safe, guardrailed wrappers around local infrastructure and cloud CLIs. Rather than building complex native integrations with specific SDKs (which require extensive auth management), this server wraps the standard local CLIs (`kubectl`, `aws`, `az`, `psql`, etc.) while enforcing strict read-only policies.
 

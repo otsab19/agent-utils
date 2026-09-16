@@ -1,5 +1,5 @@
 {
-  "name": "@agent-utils/mcp-infra",
+  "name": "@otsab190/mcp-infra",
   "version": "0.1.0",
   "description": "AgentUtils MCP Server for Infrastructure CLI wrappers (AWS, Azure, K8s, DBs, MQ)",
   "type": "module",
